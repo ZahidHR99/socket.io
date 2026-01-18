@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Socket.io</title>
+    </head>
+    <body>
+        <h1>Socket.io Realtime Application</h1>
+       
+        <input type="text" id="inputField" placeholder="Type something..." />
+        <button id="sendButton" onClick="sendMessage()">Send</button>
+    
+   
+    </body>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const inputField = document.getElementById('inputField');
+        
+        function sendMessage() {
+            const message = inputField.value;
+            socket.emit("MyEvent", message);
+            inputField.value = "";
+        }
+    </script>
+</html>
+</html>
