@@ -11,9 +11,7 @@ const io = new Server(expressServer);
 io.on('connection', (socket) => {
   console.log('A user connected');
 
-  socket.on('MyEvent', (msg) => {
-    console.log(msg);
-  });
+  io.sockets.emit('MyBroadcast', 'Welcome to the real-time server!');
  
 });
 

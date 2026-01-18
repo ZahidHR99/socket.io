@@ -4,6 +4,8 @@
     </head>
     <body>
         <h1>Socket.io Realtime Application</h1>
+
+        <h1 id="msg">Realtime Chat</h1>
        
         <input type="text" id="inputField" placeholder="Type something..." />
         <button id="sendButton" onClick="sendMessage()">Send</button>
@@ -15,13 +17,9 @@
     <script>
         const socket = io();
 
-        const inputField = document.getElementById('inputField');
-        
-        function sendMessage() {
-            const message = inputField.value;
-            socket.emit("MyEvent", message);
-            inputField.value = "";
-        }
+        socket.on('MyBroadcast', (msg) => {
+            document.getElementById('msg').innerHTML = msg;
+        });
     </script>
 </html>
 </html>
